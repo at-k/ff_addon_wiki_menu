@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css" ?>
+
+<window id="resttestUI" title="HTTP Resource Test" xmlns:html="http://www.w3.org/1999/xhtml"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  width="700" height="820">
+  <script type="text/javascript" src="resttestUI.js" />
+  <keyset>
+    <key id="tab_cmd" keycode="VK_TAB" />
+  </keyset>
+  <vbox flex="1">
+    <vbox flex="1">
+      <groupbox>
+        <caption label="Resource" />
+        <vbox>
+          <hbox align="center">
+            <label value="URI:" />
+            <textbox id="rest-uri" flex="1" type="autocomplete"
+              autocompletesearch="history form-history" />
+            <button label="Submit" id="goButton"
+              oncommand="net.pyrocufflink.resttest.testREST()" />
+            <label value="Method:" />
+            <menulist id="request-method" editable="true"
+              oncommand="net.pyrocufflink.resttest.switchHTTPMethod()"
+              onchange="net.pyrocufflink.resttest.switchHTTPMethod()">
+              <menupopup>
+                <menuitem label="GET" value="GET" selected="true" />
+                <menuitem label="PUT" value="PUT" />
+                <menuitem label="POST" value="POST" />
+                <menuitem label="DELETE" value="DELETE" />
+                <menuitem label="HEAD" value="HEAD" />
+                <menuitem label="OPTIONS" value="OPTIONS" />
+              </menupopup>
+            </menulist>
+          </hbox>
+        </vbox>
+      </groupbox>
+      <groupbox flex="2">
+        <caption label="Client Request" />
+        <tabbox flex="1">
+          <tabs>
+            <tab label="Representation" />
+            <tab label="Headers" />
+          </tabs>
+          <tabpanels flex="1">
+            <tabpanel id="representation-panel">
+              <textbox id="representation" multiline="true"
+                flex="1" disabled="true" />
+            </tabpanel>
+            <tabpanel id="headers-panel">
+              <vbox flex="1">
+                <hbox>
+                  <spacer flex="1" />
+                  <button label="Add"
+                    oncommand="net.pyrocufflink.resttest.addHeader();" />
+                </hbox>
+                <vbox flex="1">
+                  <grid flex="1" id="header-grid">
+                    <columns>
+                      <column />
+                      <column flex="1" />
+                      <column />
+                    </columns>
+                    <rows>
+                    </rows>
+                  </grid>
+                </vbox>
+              </vbox>
+            </tabpanel>
+          </tabpanels>
+        </tabbox>
+      </groupbox>
+      <groupbox flex="4">
+        <caption label="Server Response" />
+        <label value="Headers" />
+        <textbox id="response-headers" multiline="true" flex="1"
+          readonly="true" />
+        <label value="Body" />
+        <textbox id="response-body" multiline="true" flex="1"
+          readonly="true" />
+      </groupbox>
+    </vbox>
+    <spacer />
+    <statusbar>
+      <statusbarpanel id="loadStatus" flex="1" label="Done" />
+      <progressmeter id="loadProgress" hidden="true" />
+    </statusbar>
+  </vbox>
+</window>

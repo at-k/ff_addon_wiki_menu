@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<prefwindow id="wassistopt"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    title="Wiki-Assistant">
+
+    <prefpane orient="Vertical">
+        <preferences>
+            <preference id="wa2_default_server"   name="extensions.wa2.default.server"    type="string"/>
+            <preference id="wa2_default_name"     name="extensions.wa2.default.name"      type="string"/>
+            <preference id="wa2_wiki_enabled"     name="extensions.wa2.wiki.enabled"      type="bool"/>
+            <preference id="wa2_main_access_key"     name="extensions.wa2.main_access_key"      type="string"/>
+            <preference id="wa2_db_access_key"     name="extensions.wa2.db_access_key"      type="string"/>
+            <preference id="wa2_wiki_access_key"     name="extensions.wa2.wiki_access_key"      type="string"/>
+            <preference id="wa2_wiki_server"     name="extensions.wa2.wiki.server"      type="string"/>
+            <preference id="wa2_wiki_mypage"     name="extensions.wa2.wiki.mypage"      type="string"/>
+        </preferences>
+
+        <vbox flex="1">
+            <vbox flex="1">
+                <groupbox>
+                    <caption label="DB config" />
+                    <grid flex="1">
+                        <columns>
+                            <column />
+                            <column flex="1" />
+                        </columns>
+                        <rows>
+                            <row>
+                                <label value="DB Server" />
+                                <textbox id="textbox_server"
+                                    type="string"
+                                    preference="wa2_default_server"
+                                    onfocus="select();" tabindex="1" flex="1"
+                                    />
+                            </row>
+                            <row>
+                                <label value="name" />
+                                <textbox id="textbox_name"
+                                    type="stirng"
+                                    preference="wa2_default_name"
+                                    onfocus="select();" tabindex="2" flex="1"
+                                    />
+                            </row>
+                        </rows>
+                    </grid>
+
+                    <hbox align="center">
+                        <checkbox id="chk_enable" label="wikiに同時投稿する"
+                            preference="wa2_wiki_enabled"  tabindex="3" />
+                    </hbox>
+                </groupbox>
+                <groupbox>
+                    <caption label="Wiki Config" />
+                    <grid flex="1">
+                        <columns>
+                            <column />
+                            <column flex="1" />
+                        </columns>
+                        <rows>
+                            <row>
+                                <label value="Wiki Server" />
+                                <textbox id="textbox_wiki_server"
+                                    type="string"
+                                    preference="wa2_wiki_server"
+                                    onfocus="select();" tabindex="4" flex="1"
+                                    />
+                            </row>
+                            <row>
+                                <label value="my page" />
+                                <textbox id="textbox_wiki_mypage"
+                                    type="stirng"
+                                    size="10"
+                                    maxlength="20"
+                                    preference="wa2_wiki_mypage"
+                                    onfocus="select();" tabindex="5" flex="1"
+                                    />
+                            </row>
+                        </rows>
+                    </grid>
+                </groupbox>
+                <groupbox>
+                    <caption label="Access key(browser restart required)" />
+                    <grid flex="1">
+                        <columns>
+                            <column />
+                            <column flex="1" />
+                        </columns>
+                        <rows>
+                            <row>
+                                <label value="Main" />
+                                <textbox id="main_access_key"
+                                    type="string"
+                                    preference="wa2_main_access_key" maxlength="1"
+                                    onfocus="select();" tabindex="6" flex="1"
+                                    />
+                            </row>
+                            <row>
+                                <label value="DB" />
+                                <textbox id="db_access_key"
+                                    type="string"
+                                    preference="wa2_db_access_key" maxlength="1"
+                                    onfocus="select();" tabindex="7" flex="1"
+                                    />
+                            </row>
+                            <row>
+                                <label value="Wiki" />
+                                <textbox id="wiki_access_key"
+                                    type="string"
+                                    preference="wa2_wiki_access_key" maxlength="1"
+                                    onfocus="select();" tabindex="8" flex="1"
+                                    />
+                            </row>
+                        </rows>
+                    </grid>
+                </groupbox>
+            </vbox>
+        </vbox>
+    </prefpane>
+
+</prefwindow>
+

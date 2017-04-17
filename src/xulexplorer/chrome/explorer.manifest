@@ -1,0 +1,5 @@
+content branding jar:explorer.jar!/branding/
+overlay chrome://explorer/content/explorer.xul chrome://explorer/content/overlays/inspector.xul
+overlay chrome://explorer/content/explorer.xul chrome://explorer/content/overlays/venkman.xul
+content explorer jar:explorer.jar!/
+locale branding en-US jar:explorer.jar!/branding/

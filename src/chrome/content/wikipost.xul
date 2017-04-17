@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css" ?>
+<?xml-stylesheet href="chrome://mozapps/content/preferences/preferences.css"?>
+<?xml-stylesheet href="chrome://browser/skin/preferences/preferences.css"?>
+
+<window
+    id="resttestUI" title="Post To Wiki" xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    width="700" height="820" >
+    <script type="text/javascript" src="common.js"/>
+    <script type="text/javascript" src="wikipost.js"/>
+    <keyset>
+        <key id="tab_cmd" keycode="VK_TAB" />
+    </keyset>
+    <vbox flex="1">
+        <vbox flex="1">
+            <groupbox>
+                <caption label="Post to" />
+                <grid flex="1">
+                    <columns>
+                        <column />
+                        <column flex="1" />
+                    </columns>
+
+                    <rows>
+                        <row>
+                            <label control="post-Wiki" value="Wiki:" />
+                            <textbox id="post-Wiki" flex="1" />
+                        </row>
+                        <row>
+                            <label control="post-Page" value="Page:" />
+                            <textbox id="post-Page" flex="1" />
+                        </row>
+                   </rows>
+                </grid>
+                <checkbox id="jump-Wiki" label="投稿後ページヘ移動する" checked="false" />
+            </groupbox>
+        </vbox>
+        <groupbox flex="4">
+            <label value="Body:" />
+            <vbox flex="1">
+                <textbox id="wiki-body" multiline="true" flex="1" />
+            </vbox>
+        </groupbox>
+        <spacer />
+        <hbox>
+            <spacer flex="1" />
+            <button id="bttn-OK" label="OK" accesskey="O" oncommand="wa2_wiki.submit()"/>
+            <button id="bttn-CANCEL" label="Cancel" accesskey="C" oncommand="window.close()"/>
+        </hbox>
+    </vbox>
+</window>

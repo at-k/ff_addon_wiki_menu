@@ -1,0 +1,6 @@
+content   wikiassist              jar:chrome/wikiassist.jar!/content/
+skin      wikiassist  classic/1.0 jar:chrome/wikiassist.jar!/skin/
+locale    wikiassist  en-US       jar:chrome/wikiassist.jar!/locale/en-US/
+resource  wikiassist              modules/
+
+overlay chrome://browser/content/browser.xul  chrome://wikiassist/content/browserOverlay.xul

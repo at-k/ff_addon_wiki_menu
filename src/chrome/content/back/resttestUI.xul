@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css" ?>
+<?xml-stylesheet href="chrome://mozapps/content/preferences/preferences.css"?>
+<?xml-stylesheet href="chrome://browser/skin/preferences/preferences.css"?>
+
+<window id="resttestUI" title="HTTP Resource Test" xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    width="700" height="820" >
+    <script type="text/javascript" src="resttestUI.js"/>
+    <keyset>
+        <key id="tab_cmd" keycode="VK_TAB" />
+    </keyset>
+    <vbox flex="1">
+        <vbox flex="1">
+            <groupbox>
+                <caption label="Information" />
+                <grid flex="1">
+                    <columns>
+                        <column />
+                        <column flex="1" />
+                    </columns>
+
+                    <rows>
+                        <row>
+                            <label control="post-Date" value="Date:" />
+                            <hbox flex="1">
+                                <textbox id="post-Date" flex="1" />
+                                <label control="post-Name" value="Name:" />
+                                <textbox id="post-Name" flex="1" />
+                            </hbox>
+                        </row>
+                        <row>
+                            <label control="post-Title" value="Title:" />
+                            <textbox id="post-Title" flex="1" />
+                        </row>
+                        <row>
+                            <label control="post-URL" value="URL:" />
+                            <textbox id="post-URL" flex="1" />
+                        </row>
+                        <row>
+                            <label control="post-Vendor" value="Vendor:" />
+                            <hbox flex="1">
+                                <menulist id="post-Vendor" flex="1" editable="true">
+                                    <menupopup>
+                                    </menupopup>
+                                </menulist>
+                                <label control="post-Cat" value="Category:" />
+                                <menulist id="post-Cat" flex="1" editable="true">
+                                    <menupopup>
+                                    </menupopup>
+                                </menulist>
+                            </hbox>
+                        </row>
+                        <row>
+                            <label control="myFileField" value="File:" />
+                            <hbox align="center">
+                                <filefield id="myFileField" flex="1" />
+                                <button label="Browse..." oncommand="selectFile();" />
+                            </hbox>
+                        </row>
+                    </rows>
+                </grid>
+                <vbox>
+                    <label value="Memo:" />
+                    <textbox id="post-Memo" multiline="true" flex="1" />
+                </vbox>
+            </groupbox>
+            <groupbox flex="4">
+                <caption label="wiki" />
+                <checkbox label="enable wiki post" checked="false" />
+                <label value="Preview" />
+                <textbox id="response-headers" multiline="true" flex="1"
+                    readonly="true" />
+            </groupbox>
+        </vbox>
+        <spacer />
+        <hbox>
+            <spacer flex="1" />
+            <button id="bttn-OK" label="OK" accesskey="O"/>
+            <button id="bttn-CANCEL" label="Cancel" accesskey="C"/>
+        </hbox>
+    </vbox>
+</window>

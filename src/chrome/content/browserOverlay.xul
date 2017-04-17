@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet type="text/css" href="chrome://global/skin/" ?>
+<?xml-stylesheet type="text/css" href="chrome://wikiassist/skin/browserOverlay.css" ?>
+<?xml-stylesheet href="chrome://mozapps/content/preferences/preferences.css"?>
+<?xml-stylesheet href="chrome://browser/skin/preferences/preferences.css"?>
+
+<!DOCTYPE overlay SYSTEM
+"chrome://wikiassist/locale/browserOverlay.dtd">
+
+<overlay id="wikiassist-browser-overlay"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <script type="application/x-javascript"
+        src="chrome://wikiassist/content/browserOverlay.js" />
+
+    <stringbundleset id="stringbundleset">
+        <stringbundle id="wikiassist-string-bundle"
+            src="chrome://wikiassist/locale/browserOverlay.properties" />
+    </stringbundleset>
+
+    <popup id="contentAreaContextMenu">
+        <menu id="id_wa2" label="wa2:閲覧中のページを投稿" accesskey="j" >
+            <menupopup>
+               <menuitem id="id_db_post" label="DBへ" accesskey="d"
+                    oncommand="WikiAssistChrome.BrowserOverlay.post_to_db(event);" />
+                <menuitem id="id_wiki_post" label="Wikiへ" accesskey="w"
+                    oncommand="WikiAssistChrome.BrowserOverlay.post_to_wiki(event, false);" />
+            </menupopup>
+        </menu>
+        <menuitem id="id_diary_post" label="wa2:日記を書く" accesskey="d"
+                    oncommand="WikiAssistChrome.BrowserOverlay.post_to_wiki(event, true);" />
+    </popup>
+
+</overlay>
